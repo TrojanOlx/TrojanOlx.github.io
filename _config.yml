@@ -100,15 +100,9 @@ service-worker: true
 friends: [
     {
         title: "Trojan",
-        href: "http://oulongxing.com"
+        href: "http://www.oulongxing.com"
     },{
         title: "徐正夫",
         href: "http://www.xuzhengfu.com"
-    },{
-        title: "Apple",
-        href: "https://apple.com"
-    },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
     }
 ]
