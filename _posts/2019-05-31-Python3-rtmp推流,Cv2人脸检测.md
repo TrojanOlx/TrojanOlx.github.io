@@ -4,7 +4,7 @@ title:      Python3-rtmp推流,Cv2人脸检测
 subtitle:   Python3-rtmp推流,Cv2人脸检测
 date:       2019-05-31
 author:     Trojan
-header-img: img/post-bg-cook.jpg
+header-img: img/post-bg-1.jpg
 catalog: true
 tags:
     - Python3
