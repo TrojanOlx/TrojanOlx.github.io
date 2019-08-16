@@ -20,12 +20,12 @@ tags:
 安装docker步骤略过
 
 ### **基础环境**   
-- Docker 拉取最新的 ubuntu image  
-    
+- Docker 拉取最新的 ubuntu image   
 ```
 docker pull ubuntu 
 ```   
-- 然后查看镜像       
+- 然后查看镜像   
+
 ```
 ➜  ~ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
