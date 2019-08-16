@@ -48,7 +48,7 @@ root@391f2aa473eb:/# wget https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.
 root@391f2aa473eb:/# install -m 0755 -o root -g root -t /usr/local/bin ./bitcoin-0.18.1/bin/*
 ```
 ### **启动钱包**
-1. 先在已前台运行方式启动钱包，让它产生基础配置文件(配置文件位置在  ***~/.bitcoin***  目录下)
+1. 先在前台运行方式启动钱包，让它产生基础配置文件(配置文件位置在  ***~/.bitcoin***  目录下)
 ```
 root@391f2aa473eb:/# bitcoind
 root@391f2aa473eb:/# cd ~/.bitcoin && ls
