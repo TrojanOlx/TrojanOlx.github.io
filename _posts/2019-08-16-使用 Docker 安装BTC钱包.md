@@ -87,11 +87,12 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 - 打包   
 
-   > docker commit -m  "提交信息"   -a  "作者"   [CONTAINER ID]  [给新的镜像命名]      
-```
-➜  ~ docker commit -a "Trojan" -m "Create BTC wallet" 391f2aa473eb trojan/btcwallet
-sha256:3b8d452b9cb2f6513fab9aaa8b26771e8cf91d66cce901e79d13f532e610a191
-```   
+   > docker commit -m  "提交信息"   -a  "作者"   [CONTAINER ID]  [给新的镜像命名]   
+   
+    ```
+    ➜  ~ docker commit -a "Trojan" -m "Create BTC wallet" 391f2aa473eb trojan/btcwallet
+    sha256:3b8d452b9cb2f6513fab9aaa8b26771e8cf91d66cce901e79d13f532e610a191
+    ```   
 
 - 查看镜像 (trojan/btcwallet 就是刚才容器打包成的镜像)   
 ```
@@ -106,37 +107,40 @@ ubuntu              latest              a2a15febcdf3        23 hours ago        
 ### **配置钱包并且启动**
 
 - 钱包配置文件  
-   > 钱包文件放在宿主机的位置（我这里放在 ***~/wallet/btc*** 文件夹下）      
-```
-➜  ~ mkdir -p ~/wallet/btc
-➜  ~ vim ~/wallet/btc/bitcoin.conf
+   > 钱包文件放在宿主机的位置（我这里放在 ***~/wallet/btc*** 文件夹下）   
+   
+    ```
+    ➜  ~ mkdir -p ~/wallet/btc
+    ➜  ~ vim ~/wallet/btc/bitcoin.conf
 
-#监听模式，默认启动
-listen=1
-#事务索引
-txindex=1
-#允许bitcoin接收JSON-RPC
-server=1
-#RPC用户名
-rpcuser=******
-#RPC密码
-rpcpassword=******
-#RPC端口
-rpcport=8332
-#允许RPC访问ip
-rpcallowip=127.0.0.1
-rpcallowip=0.0.0.0/24
-```   
-> esc :wq 保存退出   
+    #监听模式，默认启动
+    listen=1
+    #事务索引
+    txindex=1
+    #允许bitcoin接收JSON-RPC
+    server=1
+    #RPC用户名
+    rpcuser=******
+    #RPC密码
+    rpcpassword=******
+    #RPC端口
+    rpcport=8332
+    #允许RPC访问ip
+    rpcallowip=127.0.0.1
+    rpcallowip=0.0.0.0/24
+    ```   
+    
+    > esc :wq 保存退出   
 
 
 - 启动容器   
 
    > (数据卷挂载) 并且将配置文件进容器；将钱包文件也映射出来   
-   >  -v:绑定一个卷; -p: 指定端口映射，格式为：主机(宿主)端口:容器端口      
-```
-➜  ~ docker run -itd -p 18332:8332 -v ~/wallet/btc:/root/.bitcoin --name wallet_btc trojan/btcwallet bitcoind
-```   
+   >  -v:绑定一个卷; -p: 指定端口映射，格式为：主机(宿主)端口:容器端口   
+   
+    ```
+    ➜  ~ docker run -itd -p 18332:8332 -v ~/wallet/btc:/root/.bitcoin --name wallet_btc trojan/btcwallet bitcoind
+    ```   
 
 ---   
 Docker 安装BTC钱包就结束了   
@@ -146,6 +150,7 @@ Docker 安装BTC钱包就结束了
 ### 使用 Dockerfile 安装BTC钱包   
 
 - Dockerfile 文件   
+
 ```
 FROM ubuntu:latest
 RUN apt-get update && apt-get install wget \
@@ -156,6 +161,7 @@ ENTRYPOINT ["bitcoind"]
 ```   
 
 - 使用Dockerfile 创建钱包镜像   
+
 ```
 ➜  ~ docker build -t [标签] .
 ```   
