@@ -31,7 +31,7 @@ docker pull ubuntu
 ➜  ~ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ubuntu              latest              a2a15febcdf3        20 hours ago        64.2MB
-```
+```   
 ### **安装钱包**
 1. 启动镜像 (-i: 以交互模式运行容器，通常与 -t 同时使用; -t: 为容器重新分配一个伪输入终端;)
 ```
@@ -46,7 +46,7 @@ root@391f2aa473eb:/#  apt-get update && apt-get install -y wget
 ```
 root@391f2aa473eb:/# wget https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1-x86_64-linux-gnu.tar.gz -O - | tar -xz
 root@391f2aa473eb:/# install -m 0755 -o root -g root -t /usr/local/bin ./bitcoin-0.18.1/bin/*
-```
+```   
 ### **启动钱包**
 1. 先在前台运行方式启动钱包，让它产生基础配置文件(配置文件位置在  ***~/.bitcoin***  目录下)
 ```
@@ -87,11 +87,13 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 trojan/btcwallet    latest              3b8d452b9cb2        17 seconds ago      272MB
 ubuntu              latest              a2a15febcdf3        23 hours ago        64.2MB
 ```   
-<span id="jump"></span>
+<span id="jump"></span>   
+
 ### **配置钱包并且启动**
 
 1. 钱包配置文件  
-   > 钱包文件放在宿主机的位置（我这里放在 ***~/wallet/btc*** 文件夹下）
+   > 钱包文件放在宿主机的位置（我这里放在 ***~/wallet/btc*** 文件夹下）   
+   
 ```
 ➜  ~ mkdir -p ~/wallet/btc
 ➜  ~ vim ~/wallet/btc/bitcoin.conf
