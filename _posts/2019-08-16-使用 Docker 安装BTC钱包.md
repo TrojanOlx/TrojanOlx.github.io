@@ -20,14 +20,11 @@ tags:
 安装docker步骤略过
 
 ### **基础环境**
-1. Docker 拉取最新的 ubuntu image  
-
+    Docker 拉取最新的 ubuntu image  
 ```
 docker pull ubuntu 
-```
- 
-2. 然后查看镜像   
-
+```   
+    然后查看镜像       
 ```
 ➜  ~ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -36,20 +33,19 @@ ubuntu              latest              a2a15febcdf3        20 hours ago        
 
 ### **安装钱包**   
 
-1. 启动镜像 (-i: 以交互模式运行容器，通常与 -t 同时使用; -t: 为容器重新分配一个伪输入终端;)   
-
+    启动镜像 (-i: 以交互模式运行容器，通常与 -t 同时使用; -t: 为容器重新分配一个伪输入终端;)   
 ```
 ➜  ~ docker run -it --name btcwallet ubuntu
 root@391f2aa473eb:/# 
 ```   
 
-2. 安装wget(为了下载钱包文件)   
+    安装wget(为了下载钱包文件)   
 
 ```
 root@391f2aa473eb:/#  apt-get update && apt-get install -y wget
 ```   
 
-3. 下载钱包并且解压安装   
+    下载钱包并且解压安装   
 
 ```
 root@391f2aa473eb:/# wget https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1-x86_64-linux-gnu.tar.gz -O - | tar -xz
