@@ -49,7 +49,7 @@ node3|10.0.0.103|centos
 
 ### **创建AG**   
 
-#### **启用AG并重启mssql-server**
+#### **启用AG并重启mssql-server**（bash）
 
 在所有节点的SQL Server上启用AlwaysOn AG，然后重启mssql-server服务：   
 ```
@@ -65,7 +65,7 @@ ALTER EVENT SESSION AlwaysOn_health ON SERVER WITH (STARTUP_STATE=ON);
 GO
 ```   
 
-#### 创建数据库镜像端点访问使用的用户   
+#### 创建数据库镜像端点访问使用的用户  (T-SQL) 
 ```
 CREATE LOGIN dbm_login WITH PASSWORD = '<Password>';
 CREATE USER dbm_user FOR LOGIN dbm_login;
@@ -97,7 +97,7 @@ cd /var/opt/mssql/data
 chown mssql:mssql dbm_certificate.*
 ```   
 
-#### 在辅助服务器上创建证书
+#### 在辅助服务器上创建证书(T-SQL)
 
 以下 Transact-SQL 脚本根据在主 SQL Server 副本上创建的备份创建主密钥和证书。 使用强密码更新脚本。 解密密码与在此前的步骤中创建 .pvk 文件使用的密码相同。   
 ```
@@ -110,7 +110,7 @@ DECRYPTION BY PASSWORD = '<Private_Key_Password>'
 );
 ```   
 
-#### 在所有节点上创建数据库镜像端点
+#### 在所有节点上创建数据库镜像端点(T-SQL)
 
 （可选）可以包含 IP 地址 LISTENER_IP = (0.0.0.0)。 侦听器 IP 地址必须是 IPv4 地址。 还可以使用 0.0.0.0。
 
@@ -131,7 +131,7 @@ GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [dbm_login];
 ```   
 
 
-### 在主节点上创建AG   
+### 在主节点上创建AG(T-SQL)   
 - 三个同步副本   
   > 此配置包含三个同步副本。 默认情况下，它提供高可用性和数据保护。 它还可以提供读取缩放。
 
