@@ -12,13 +12,14 @@ tags:
 ### Sqlserver for Linux 高可用
 
 ### **环境**   
+
 主机名|IP|类型   
 :--:|:--:|:--:   
 node1|10.0.0.101|centos   
 node2|10.0.0.102|centos   
 node3|10.0.0.103|centos   
 
-> [安装 sqlserver](https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-red-hat?view=sql-server-2017)   
+> [centos 安装 sqlserver](https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-red-hat?view=sql-server-2017)   
 
 ### **准备工作**   
 
@@ -168,8 +169,9 @@ GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [dbm_login];
   ```   
 
 - 两个同步副本   
-    > 此配置启用数据保护。像其他可用性组配置，它可以实现读取缩放。 两个同步副本配置不提供自动高可用性。
-  | |读取缩放|数据保护   
+    > 此配置启用数据保护。像其他可用性组配置，它可以实现读取缩放。 两个同步副本配置不提供自动高可用性。   
+    
+    | |读取缩放|数据保护   
     :--:|:--:|:--:
     REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT=|0|1*|2  
     主要副本中断|0*|@shouldalert  
@@ -195,7 +197,8 @@ GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [dbm_login];
     ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
     ```   
 - 两个同步副本和仅配置副本   
-  | |读取缩放|数据保护   
+
+    | |读取缩放|数据保护   
     :--:|:--:|:--:
     REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT=|0 *|@shouldalert  
     主要副本中断|自动故障转移。 新的主副本是 R / w。|自动故障转移。 新的主数据库不可用的用户事务。  
