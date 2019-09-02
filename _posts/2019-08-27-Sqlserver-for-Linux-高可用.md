@@ -173,7 +173,7 @@ GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [dbm_login];
     
     | |读取缩放|数据保护   
     :--:|:--:|:--:
-    REQUIRED_SYNCHRONIZED<br/>_SECONDARIES_TO_COMMIT=|0|1*|2  
+    REQUIRED_SYNCHRONIZED<br/>_SECONDARIES_TO_COMMIT=|0|1*  
     主要副本中断|0*|@shouldalert  
     主要副本中断|手动故障转移。 可能导致数据丢失。 新的主副本是 R / w。|自动故障转移。 新的主数据库不可用的用户事务，直到在先前的主要副本恢复并加入可用性组作为辅助。   
     一个次要副本中断|主要是 R/W，运行可能导致数据丢失。| 主次要副本恢复之前不可用的用户事务。   
