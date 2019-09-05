@@ -153,7 +153,7 @@ Docker 安装BTC钱包就结束了
 
 ```
 FROM ubuntu:latest
-RUN apt-get update && apt-get install wget \
+RUN apt-get update && apt-get install -y wget \
     && wget https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1-x86_64-linux-gnu.tar.gz -O - | tar -xz \
     && install -m 0755 -o root -g root -t /usr/local/bin ./bitcoin-0.18.1/bin/* \
     && apt-get --purge -y remove wget
