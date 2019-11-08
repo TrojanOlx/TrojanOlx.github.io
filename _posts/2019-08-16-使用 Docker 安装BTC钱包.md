@@ -4,7 +4,7 @@ title:      使用 Docker 安装BTC钱包
 subtitle:   使用 Docker 部署BTC钱包，另有 Dokcerfile
 date:       2019-08-16
 author:     Trojan
-header-img: img/post-bg-9.jpg
+header-img: img/post-bg-16.jpg
 catalog: true
 tags:
     - Docket
